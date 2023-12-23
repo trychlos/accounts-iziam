@@ -1,4 +1,4 @@
-# pwix:iziam
+# pwix:accounts-iziam
 
 ## ChangeLog
 
