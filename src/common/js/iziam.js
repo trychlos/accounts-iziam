@@ -23,8 +23,8 @@ if( Meteor.isClient ){
         izIAM.requestCredential( options, credentialRequestCompleteCallback );
     };
 
-    Accounts.registerClientLoginFunction( 'iziam', loginWithIzIAM );
-    Meteor.loginWithIzIAM = ( ...args ) => Accounts.applyLoginFunction( 'iziam', args );
+    Accounts.registerClientLoginFunction( izIAM.C.Service, loginWithIzIAM );
+    Meteor.loginWithIzIAM = ( ...args ) => Accounts.applyLoginFunction( izIAM.C.Service, args );
 
 } else {
 
@@ -32,7 +32,7 @@ if( Meteor.isClient ){
         // not sure whether the github api can be used from the browser,
         // thus not sure if we should be sending access tokens; but we do it
         // for all other oauth2 providers, and it may come in handy.
-        forLoggedInUser: [ 'services.iziam' ],
-        forOtherUsers: [ 'services.iziam.username' ]
+        forLoggedInUser: [ 'services.'+izIAM.C.Service ],
+        forOtherUsers: [ 'services.'+izIAM.C.Service+'.username' ]
     });
 }
