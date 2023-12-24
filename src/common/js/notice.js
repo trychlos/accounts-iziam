@@ -9,9 +9,9 @@ if( Package['pwix:accounts-ui']
         console.warn(
             "Note: You're using (pwix:)accounts-ui and accounts-iziam,\n" +
             "but didn't install the configuration UI for the izIAM\n" +
-            "OAuth. You can install it with:\n" +
+            "OpenID Provider. You can install it with:\n" +
             "\n" +
-            "    meteor add github-config-ui" +
+            "    meteor add iziam-config-ui" +
             "\n"
         );
 }

@@ -1,23 +1,29 @@
 /*
  * pwix:accounts-iziam/src/common/js/iziam.js
+ *
+ * See https://docs.meteor.com/api/accounts#Meteor-loginWith%3CExternalService%3E
  */
+
+import { Accounts } from 'meteor/accounts-base';
+import { izIAM } from 'meteor/pwix:iziam-oidc';
 
 Accounts.oauth.registerService( 'iziam' );
 
 if( Meteor.isClient ){
     const loginWithIzIAM = ( options, callback ) => {
+        console.debug( 'loginWithIzIAM', options );
+
         // support a callback without options
-        if (! callback && typeof options === "function") {
+        if( ! callback && typeof options === 'function' ){
             callback = options;
             options = null;
         }
 
-        const credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
-        Github.requestCredential(options, credentialRequestCompleteCallback);
+        const credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler( callback );
+        izIAM.requestCredential( options, credentialRequestCompleteCallback );
     };
 
     Accounts.registerClientLoginFunction( 'iziam', loginWithIzIAM );
-
     Meteor.loginWithIzIAM = ( ...args ) => Accounts.applyLoginFunction( 'iziam', args );
 
 } else {
