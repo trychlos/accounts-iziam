@@ -22,10 +22,12 @@ Package.onTest( function( api ){
 function configure( api ){
     api.versionsFrom( '2.9.0' );
     api.use( 'accounts-base', ['client', 'server'] );
-    // Export Accounts (etc) to packages using this one.
     api.imply( 'accounts-base', ['client', 'server'] );
     api.use( 'accounts-oauth', ['client', 'server']);
-    api.use( 'ecmascript');
+    api.use( 'blaze-html-templates@2.0.0', 'client' );
+    api.use( 'ecmascript' );
+    api.use( 'less@4.0.0', 'client' );
+    api.use( 'pwix:i18n@1.5.2' );
     api.use( 'pwix:iziam-oidc');
     api.imply( 'pwix:iziam-oidc');
     api.use(
@@ -33,6 +35,7 @@ function configure( api ){
         ['client', 'server'],
         { weak: true }
     );
+    api.addFiles( 'src/client/components/iziamLoginButton/iziamLoginButton.js', 'client' );
 }
 
 // NPM dependencies are checked in /src/server/js/check_npms.js

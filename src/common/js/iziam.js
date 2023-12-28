@@ -11,10 +11,10 @@ Accounts.oauth.registerService( 'iziam' );
 
 if( Meteor.isClient ){
     const loginWithIzIAM = ( options, callback ) => {
-        console.debug( 'loginWithIzIAM', options );
+        console.debug( 'entering loginWithIzIAM() with options', options );
 
         // support a callback without options
-        if( ! callback && typeof options === 'function' ){
+        if( !callback && typeof options === 'function' ){
             callback = options;
             options = null;
         }
