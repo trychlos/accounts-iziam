@@ -28,8 +28,8 @@ function configure( api ){
     api.use( 'ecmascript' );
     api.use( 'less@4.0.0', 'client' );
     api.use( 'pwix:i18n@1.5.2' );
-    api.use( 'pwix:iziam-oidc');
-    api.imply( 'pwix:iziam-oidc');
+    api.use( 'pwix:iziam-oidc@1.0.0-rc' );
+    api.imply( 'pwix:iziam-oidc@1.0.0-rc' );
     api.use(
         ['pwix:accounts-ui', 'iziam-config-ui'],
         ['client', 'server'],

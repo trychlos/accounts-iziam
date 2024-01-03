@@ -4,5 +4,4 @@
 
 import './constants.js';
 import './i18n.js';
-import './iziam.js';
 import './notice.js';
