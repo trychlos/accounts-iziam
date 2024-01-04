@@ -16,8 +16,9 @@ Template.iziamLoginButton.helpers({
 
 Template.iziamLoginButton.events({
     'click .iziamLoginButton button'( event, instance ){
-        Meteor.loginWithIzIAM( {}, ( res ) => {
-            console.debug( 'callback res', res );
+        Meteor.loginWithIzIAM( {}, ( err ) => {
+            // either an error or undefined - no other result
+            //console.debug( 'loginWithIzIAM() callback', err );
         });
     }
 });
