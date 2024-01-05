@@ -4,10 +4,10 @@
 
 ### 1.0.0-rc
 
-Release date: 
+Release date:
 
 - Initial release
 
 ---
 P. Wieser
-- Last updated on 2023, June 5th
+- Last updated on 2024, Jan. 5th
