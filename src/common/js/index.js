@@ -4,4 +4,3 @@
 
 import './constants.js';
 import './i18n.js';
-import './notice.js';

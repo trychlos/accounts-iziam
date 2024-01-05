@@ -2,7 +2,7 @@
 
 ## What is it ?
 
-A login service for izIAM accounts which implements OpenID Connect login flow.
+A login service for izIAM(©) Identity and Access Manager accounts which implements [OpenID Connect 1.0](https://openid.net/specs/openid-connect-core-1_0.html) login flow.
 
 This package is based on:
 
@@ -12,15 +12,11 @@ This package is based on:
 
 On client side, this package defines `Meteor.loginWithIzIAM()` function, which itself calls `izIAM.requestCredential()`.
 
-On server side, the package calls `Accounts.addAutopublishFields()` whith fields brought up by izIAM Identity Manager.
+On server side, the package calls `Accounts.addAutopublishFields()` whith the fields brought up by izIAM Identity and Access Manager.
 
 ## Configuration
 
 None at the moment.
-
-## Login flow description
-
-See pwix:iziam-oidc/maintainer/README.md
 
 ## NPM peer dependencies
 
@@ -28,7 +24,7 @@ None at the moment.
 
 ## Translations
 
-None at the moment.
+New and updated translations are willingly accepted, and more than welcome. Just be kind enough to submit a PR on the [Github repository](https://github.com/trychlos/pwix-accounts-iziam/pulls).
 
 ## Cookies and comparable technologies
 
