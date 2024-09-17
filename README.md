@@ -14,6 +14,30 @@ On client side, this package defines `Meteor.loginWithIzIAM()` function, which i
 
 On server side, the package calls `Accounts.addAutopublishFields()` whith the fields brought up by izIAM Identity and Access Manager.
 
+## Provides
+
+### Components
+
+#### `iziamLoginButton`
+
+A login button Blaze template to be called with following data context:
+
+- `btnClasses`
+
+    A list of classes to be added to the button, defaulting to `btn-outline-primary`;
+
+- `btnLabel`
+
+    The button label, defaulting to (translated) 'Login with izIAM'.
+
+- `withLabel`
+
+    Whether we want display a label in the button, defaulting to `true`.
+
+- `withLogo`
+
+    Whether we want display the izIAM logo in the button, defaulting to `true`.
+
 ## Configuration
 
 None at the moment.

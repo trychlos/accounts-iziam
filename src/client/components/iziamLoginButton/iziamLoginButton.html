@@ -1,8 +1,15 @@
 <template name="iziamLoginButton">
     <div class="iziamLoginButton">
 
-        <button type="button" class="btn" title="{{ i18n key="login.button.title" }}">
-            {{ i18n key="login.button.label" }}
+        <button type="button" class="btn d-flex align-items-center {{ btnClass }}" title="{{ i18n key="login.button.title" }}">
+            {{#if haveLogo }}
+                <img src="/packages/pwix_accounts-iziam/src/client/resources/svg/iziam.svg" width="16px" class="ui-mr05" />
+            {{/if}}
+            {{#if haveLabel }}
+                <div>
+                    {{{ btnLabel }}}
+                </div>
+            {{/if}}
         </button>
 
     </div>
