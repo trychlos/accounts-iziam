@@ -14,6 +14,64 @@ On client side, this package defines `Meteor.loginWithIzIAM()` function, which i
 
 On server side, the package calls `Accounts.addAutopublishFields()` whith the fields brought up by izIAM Identity and Access Manager.
 
+## How does that work ?
+
+The application which does want take advantage of the izIAM Identity and Access Manager to manage its users accounts must first register as a client against izIAM.
+
+Once registered, it gets a `ClientId` and a client secret.
+
+It now has to:
+
+- include the `iziamLoginButton` component in the ad-hoc place of its pages
+
+- define the needed configuration as a private JSON structure in its server settings, for example in a `private/config/server/environments.json` file:
+
+```json
+    "<appname>": {
+        "environments": {
+            "<environment>": {
+                "private": {
+                    "iziam": {
+                        "comments": [
+                            "openbook-dev to iziam-dev - test user for auth code grant flow"
+                        ],
+                        "loginStyle": "popup",
+                        "popupOptions": "{ width: 900, height: 450 }",
+                        "issuerUrl": "http://localhost:3003/iziam",
+                        "client_id": "6eb26be8c55b44f48f2d046232e8cfac",
+                        "client_secret": "edsfvgrtyhujhngbnhjkui3456789okjgfb098765432xwdcfvghjk87654xcfvgh_7654DFGH",
+                        "redirectUrl": "https://slim14.trychlos.lan/_oauth/iziam",
+                        "scopes": [
+                            "openid",
+                            "offline_access"
+                        ]
+                    }
+                }
+            },
+```
+
+This configuration manages:
+
+- the style and size of the login dialog:
+
+    - `loginStyle`: either `popup` or `redirect`, defaulting to `popup`.
+
+    - `popupOptions`: any style option to be given to the popup, defaulting to `{ width: 900, height: 450 }`.
+
+- the izIAM configuration:
+
+    - `issuerUrl`: MANDATORY - the URL of the izIAM.
+
+- the client configuration which must match the izIAM registration:
+
+    - `client_id`: MANDATORY - the client identifier issued at registration time
+
+    - `client_secret`: if the client wants authenticates against the token endpoint
+
+    - `redirectUrl`: one of the pre-registered allowed redirection URIs
+
+    - `scopes`: one or more scopes your client application wants use, defaulting to `[ "openid" ]`
+
 ## Provides
 
 ### Components
@@ -37,6 +95,32 @@ A login button Blaze template to be called with following data context:
 - `withLogo`
 
     Whether we want display the izIAM logo in the button, defaulting to `true`.
+
+- `iziamOptions`
+
+    An options object to be passed to 
+
+#### `iziamLogoutButton`
+
+A logout button Blaze template to be called with following data context:
+
+This is for consistency reason only, and in anyway not mandatory to use.
+
+- `btnClasses`
+
+    A list of classes to be added to the button, defaulting to `btn-outline-primary`;
+
+- `btnLabel`
+
+    The button label, defaulting to (translated) 'Logout'.
+
+- `withLabel`
+
+    Whether we want display a label in the button, defaulting to `true`.
+
+- `withLogo`
+
+    Whether we want display the izIAM logo in the button, defaulting to `false`.
 
 ## Configuration
 

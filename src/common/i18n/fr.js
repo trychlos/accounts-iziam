@@ -9,7 +9,13 @@ izIAM.i18n = {
             login: {
                 button: {
                     label: 'Se connecter avec izIAM',
-                    title: 'Se connecter avec le gestionnaire d\'identités izIAM'
+                    title: 'Se connecte avec le gestionnaire d\'identités izIAM'
+                }
+            },
+            logout: {
+                button: {
+                    label: 'Se déconnecter',
+                    title: 'Termine cette session'
                 }
             }
         }

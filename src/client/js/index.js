@@ -4,4 +4,6 @@
 
 import '../../common/js/index.js';
 
+import '../stylesheets/iziam-buttons.less';
+
 import './iziam-client.js';
