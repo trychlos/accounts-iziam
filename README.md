@@ -40,7 +40,7 @@ It now has to:
                         "issuerUrl": "http://localhost:3003/iziam",
                         "client_id": "6eb26be8c55b44f48f2d046232e8cfac",
                         "client_secret": "edsfvgrtyhujhngbnhjkui3456789okjgfb098765432xwdcfvghjk87654xcfvgh_7654DFGH",
-                        "redirectUrl": "https://slim14.trychlos.lan/_oauth/iziam",
+                        "redirect_uri": "https://slim14.trychlos.lan/_oauth/iziam",
                         "scopes": [
                             "openid",
                             "offline_access"
@@ -68,9 +68,13 @@ This configuration manages:
 
     - `client_secret`: if the client wants authenticates against the token endpoint
 
-    - `redirectUrl`: one of the pre-registered allowed redirection URIs
+    - `redirect_uri`: one of the pre-registered allowed redirection URIs
+
+    - `resources`: one or more resources asked by your client application, defaulting to `[]`
 
     - `scopes`: one or more scopes your client application wants use, defaulting to `[ "openid" ]`
+
+    - `token_endpoint_auth_method`: the client authentication method, defaulting to `client_secret_basic`
 
 ## Provides
 
@@ -98,7 +102,7 @@ A login button Blaze template to be called with following data context:
 
 - `iziamOptions`
 
-    An options object to be passed to 
+    An options object to be passed to `pwix:iziam-oidc` package and which may contain any `openid-client` option.
 
 #### `iziamLogoutButton`
 

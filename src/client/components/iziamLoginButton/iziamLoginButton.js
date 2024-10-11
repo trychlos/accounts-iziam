@@ -37,7 +37,9 @@ Template.iziamLoginButton.events({
     'click .iziamLoginButton button'( event, instance ){
         Meteor.loginWithIzIAM( this.iziamOptions || {}, ( err ) => {
             // either an error or undefined - no other result
-            console.error( 'loginWithIzIAM() callback', err );
+            if( err ){
+                console.error( 'loginWithIzIAM() callback', err );
+            }
         });
     }
 });
