@@ -66,7 +66,7 @@ This configuration manages:
 
     - `client_id`: MANDATORY - the client identifier issued at registration time
 
-    - `client_secret`: if the client wants authenticates against the token endpoint
+    - `client_secret`: if the client wants authenticate against the token endpoint
 
     - `redirect_uri`: one of the pre-registered allowed redirection URIs
 
