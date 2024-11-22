@@ -33,6 +33,7 @@ function configure( api ){
         ['client', 'server'],
         { weak: true }
     );
+    api.addFiles( 'src/client/components/iziamChangeButton/iziamChangeButton.js', 'client' );
     api.addFiles( 'src/client/components/iziamLoginButton/iziamLoginButton.js', 'client' );
     api.addFiles( 'src/client/components/iziamLogoutButton/iziamLogoutButton.js', 'client' );
     api.addAssets( 'src/client/resources/svg/iziam.svg', 'client' );

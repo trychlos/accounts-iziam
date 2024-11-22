@@ -78,7 +78,25 @@ This configuration manages:
 
 ## Provides
 
+### Functions
+
+#### `Meteor.loginWithIzIAM( options<Object>, ( err ) => {})`
+
+An async function which starts the login OpenID flow. It doesn't return any valuable value. In order to get informed about the result of this function, the application has to react on the login status of the user.
+
 ### Components
+
+#### `iziamChangeButton`
+
+A "change password" button Blaze template to be called with following data context:
+
+- `btnClasses`
+
+    A list of classes to be added to the button, defaulting to `btn-outline-primary`;
+
+- `btnLabel`
+
+    The button label, defaulting to (translated) 'Change password'.
 
 #### `iziamLoginButton`
 
@@ -108,8 +126,6 @@ A login button Blaze template to be called with following data context:
 
 A logout button Blaze template to be called with following data context:
 
-This is for consistency reason only, and in anyway not mandatory to use.
-
 - `btnClasses`
 
     A list of classes to be added to the button, defaulting to `btn-outline-primary`;
@@ -118,13 +134,7 @@ This is for consistency reason only, and in anyway not mandatory to use.
 
     The button label, defaulting to (translated) 'Logout'.
 
-- `withLabel`
-
-    Whether we want display a label in the button, defaulting to `true`.
-
-- `withLogo`
-
-    Whether we want display the izIAM logo in the button, defaulting to `false`.
+This is for consistency reason only, and in anyway not mandatory to use. Clicking on the button actually just triggers the `Meteor.logout()` standard function.
 
 ## Configuration
 
