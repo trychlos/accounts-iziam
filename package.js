@@ -29,9 +29,7 @@ function configure( api ){
     api.use( 'pwix:i18n@1.5.2' );
     api.use( 'pwix:iziam-oidc@1.0.0-rc' );
     api.use(
-        ['pwix:accounts-ui', 'iziam-config-ui'],
-        ['client', 'server'],
-        { weak: true }
+        ['pwix:accounts-ui@2.0.0'], ['client', 'server'], { weak: true }
     );
     api.addFiles( 'src/client/components/iziamChangeButton/iziamChangeButton.js', 'client' );
     api.addFiles( 'src/client/components/iziamLoginButton/iziamLoginButton.js', 'client' );
